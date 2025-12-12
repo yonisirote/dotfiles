@@ -1,0 +1,20 @@
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Languages & Build
+node_modules/
+dist/
+build/
+target/
+__pycache__/
+*.pyc
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,48 @@
+{
+  "editor.fontSize": 14,
+  "editor.fontFamily": "'Courier New', monospace",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true
+  },
+  
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.iconTheme": "vscode-icons",
+  
+  "extensions.recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "ms-python.python",
+
+    "ms-vscode.cpptools",
+    "zhuangtongfa.material-theme",
+    "vscode-icons-team.vscode-icons"
+  ],
+  
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.formatOnSave": true
+  },
+
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontFamily": "'Courier New', monospace"
+}
