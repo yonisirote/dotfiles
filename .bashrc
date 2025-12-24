@@ -16,8 +16,10 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=20000
+# Ignore duplicates and commands starting with space
+HISTCONTROL=ignoreboth:erasedups
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -101,11 +103,28 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # bat alias
-alias bat="batcat"
+alias cat='batcat'
+alias bat='batcat'
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+# Git aliases
+alias g='git'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gpl='git pull'
+alias gs='git status'
+alias gd='git diff'
+alias gl='git log --oneline -10'
+
+# Directory shortcuts
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# Utility aliases
+alias cl='clear'
+alias reload='source ~/.bashrc'
+alias mkd='mkdir -p'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -144,4 +163,10 @@ export PATH="$HOME/.local/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# Better command not found output
+if [ -f /etc/bash_command_not_found ]; then
+    . /etc/bash_command_not_found
+fi
 
+# Enable options
+shopt -s globstar  # Enable ** glob pattern
