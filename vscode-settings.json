@@ -1,106 +1,28 @@
 {
-  "editor.fontSize": 14,
-  "editor.fontFamily": "Fira Code, 'Courier New', monospace",
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.insertSpaces": true,
-  "editor.tabSize": 2,
-  "editor.wordWrap": "on",
-  "editor.renderWhitespace": "selection",
-  "editor.suggestSelection": "first",
-  "editor.inlineSuggest.enabled": true,
-  
-  "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 1000,
-  "files.exclude": {
-    "**/.git": true,
-    "**/.DS_Store": true,
-    "**/node_modules": true,
-    "**/.venv": true,
-    "**/__pycache__": true,
-    "**/dist": true,
-    "**/build": true
-  },
-  "files.watcherExclude": {
-    "**/.git/objects/**": true,
-    "**/.git/subtree-cache/**": true,
-    "**/node_modules/**": true,
-    "**/.venv/**": true
-  },
-  
-  "workbench.colorTheme": "One Dark Pro",
-  "workbench.iconTheme": "vscode-icons",
-  "workbench.startupEditor": "none",
-  "workbench.editor.enablePreview": false,
-  
-  "extensions.recommendations": [
-    "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint",
-    "ms-python.python",
-    "ms-python.vscode-pylance",
-    "ms-vscode.cpptools",
-    "zhuangtongfa.material-theme",
-    "vscode-icons-team.vscode-icons",
-    "eamodio.gitlens",
-    "mhutchie.git-graph",
-    "ritwickdey.live-server",
-    "ms-azuretools.vscode-docker"
-  ],
-  
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.python",
-    "editor.formatOnSave": true,
-    "editor.rulers": [88]
-  },
-
-  "[cpp]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools",
-    "editor.formatOnSave": true
-  },
-
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-
-  "[markdown]": {
-    "editor.wordWrap": "on",
-    "editor.formatOnSave": true
-  },
-  
-  "terminal.integrated.fontSize": 12,
-  "terminal.integrated.fontFamily": "Fira Code, 'Courier New', monospace",
-  "terminal.integrated.defaultProfile.linux": "bash",
-  
-  "git.autofetch": true,
-  "git.confirmSync": false,
-  "gitlens.hovers.currentLine.enabled": false,
-
-  "python.linting.enabled": true,
-  "python.linting.pylintEnabled": false,
-  "python.linting.flake8Enabled": true,
-  "python.formatting.provider": "black",
-
-  "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust-analyzer",
-    "editor.formatOnSave": true
-  },
-
-  "search.exclude": {
-    "**/.git": true,
-    "**/node_modules": true,
-    "**/.venv": true,
-    "**/dist": true,
-    "**/build": true
-  }
+    "telemetry.telemetryLevel": "off",
+    "workbench.colorTheme": "Nord",
+    "editor.minimap.enabled": false,
+    "workbench.activityBar.location": "hidden",
+    "workbench.editor.showTabs": "none",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', 'JetBrains Mono', monospace",
+    "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', monospace",
+    "editor.fontLigatures": true,
+    "workbench.settings.applyToAllProfiles": [
+        "editor.fontFamily",
+        "terminal.integrated.fontFamily"
+    ],
+    "window.commandCenter": false,
+    "window.customTitleBarVisibility": "windowed",
+    "workbench.iconTheme": "vscode-icons",
+    "editor.lineNumbers": "on",
+    "workbench.panel.showLabels": false,
+    "python.analysis.typeCheckingMode": "basic",
+    "github.copilot.nextEditSuggestions.enabled": false,
+    "chat.fontFamily": "'JetBrainsMono Nerd Font'",
+    "chat.editor.fontFamily": "'JetBrainsMono Nerd Font'",
+    "amp.tab.enabled": true,
+    "github.copilot.enable": {
+        "*": false
+    },
+    "amp.url": "https://ampcode.com/"
 }

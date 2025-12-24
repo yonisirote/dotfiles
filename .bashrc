@@ -16,10 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
-HISTFILESIZE=20000
-# Ignore duplicates and commands starting with space
-HISTCONTROL=ignoreboth:erasedups
+HISTSIZE=1000
+HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -58,7 +56,10 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-# Git branch in prompt
+# Added by Amp: Git branch in prompt
+# To remove this feature, delete the parse_git_branch function
+# and revert the PS1 assignment in the 'if [ "$color_prompt" = yes ]' block to:
+# PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -103,28 +104,11 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # bat alias
-alias cat='batcat'
-alias bat='batcat'
+alias bat="batcat"
 
-# Git aliases
-alias g='git'
-alias ga='git add'
-alias gc='git commit'
-alias gp='git push'
-alias gpl='git pull'
-alias gs='git status'
-alias gd='git diff'
-alias gl='git log --oneline -10'
-
-# Directory shortcuts
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-
-# Utility aliases
-alias cl='clear'
-alias reload='source ~/.bashrc'
-alias mkd='mkdir -p'
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -156,17 +140,16 @@ eval "$(fzf --bash)"
 # amp
 export PATH="$HOME/.local/bin:$PATH"
 
+# User bin directory
+export PATH="$HOME/bin:$PATH"
+
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-# Bun
+# bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# Better command not found output
-if [ -f /etc/bash_command_not_found ]; then
-    . /etc/bash_command_not_found
-fi
-
-# Enable options
-shopt -s globstar  # Enable ** glob pattern
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
