@@ -20,12 +20,10 @@ sudo apt install -y \
   wget \
   vim \
   tmux \
-  fzf \
   ripgrep \
   jq \
   bat \
   btop \
-  fastfetch \
   python3 \
   python3-pip \
   python3-venv
@@ -120,13 +118,6 @@ else
   echo "✅ GitHub CLI already installed"
 fi
 
-# Install Ghostty
-if ! command -v ghostty &> /dev/null; then
-  echo "📦 Installing Ghostty..."
-  sudo apt install -y ghostty
-else
-  echo "✅ Ghostty already installed"
-fi
 
 # Install dotfiles configs
 echo "🔧 Installing configuration files..."

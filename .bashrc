@@ -56,10 +56,7 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-# Added by Amp: Git branch in prompt
-# To remove this feature, delete the parse_git_branch function
-# and revert the PS1 assignment in the 'if [ "$color_prompt" = yes ]' block to:
-# PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# Git branch in prompt
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -85,7 +82,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+    #alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -94,16 +91,13 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
+# some more ls aliases (requires lsd)
 alias ls='lsd'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# bat alias
+# bat alias (Debian/Ubuntu package is usually batcat)
 alias bat="batcat"
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -130,26 +124,33 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# PATH setup (idempotent)
+# Prefer a separate, reusable helper if present.
+if [ -f "$HOME/.local/bin/env" ]; then
+  . "$HOME/.local/bin/env"
+else
+  case ":${PATH}:" in
+      *:"$HOME/.local/bin":*) ;;
+      *) export PATH="$HOME/.local/bin:$PATH" ;;
+  esac
+fi
+
+case ":${PATH}:" in
+    *:"$HOME/bin":*) ;;
+    *) export PATH="$HOME/bin:$PATH" ;;
+esac
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+case ":${PATH}:" in
+    *:"$BUN_INSTALL/bin":*) ;;
+    *) export PATH="$BUN_INSTALL/bin:$PATH" ;;
+esac
+
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Set up fzf key bindings and fuzzy completion
-eval "$(fzf --bash)"
-
-# amp
-export PATH="$HOME/.local/bin:$PATH"
-
-# User bin directory
-export PATH="$HOME/bin:$PATH"
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# fzf shell integration intentionally omitted.
+# It is convenient, but it has caused startup issues when multiple fzf versions exist.

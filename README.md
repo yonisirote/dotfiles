@@ -13,7 +13,7 @@ chmod +x install.sh
 The script will:
 - Update system packages
 - Install development tools (C++, Python, Node.js, Bun)
-- Install CLI utilities (git, fzf, ripgrep, lsd, bat, etc.)
+- Install CLI utilities (git, ripgrep, lsd, bat, etc.)
 - Install VS Code
 - Configure bash, git, and VS Code settings
 
@@ -26,11 +26,10 @@ The script will:
 - Bun: Fast JavaScript runtime
 
 ### CLI Tools
-- git, curl, wget, vim, tmux, htop
-- fzf (fuzzy finder)
+- git, curl, wget, vim, tmux, btop
 - ripgrep (fast search)
-- lsd (better ls)
-- bat (better cat)
+- lsd (better ls) (optional)
+- bat (better cat) (optional)
 - jq (JSON processor)
 
 ### Applications
@@ -68,7 +67,7 @@ dotfiles/
 
 - Edit `.bashrc` to add aliases or environment variables
 - Edit `vscode-settings.json` for VS Code preferences
-- Modify `install.sh` to add/remove tools
+- Modify `install.sh` to add/remove tools (edit this to your taste)
 
 ## Backup
 
